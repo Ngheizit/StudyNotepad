@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script language="javascript">
+			function check(){
+				var valid=true;
+				var n=document.form1.uname.value;
+				var p=form1.psw.value;
+				var em=document.form1.email.value;
+				if(n==""){
+					window.alert("用户名不能为空！");
+					valid=false;
+				}else if(p.length<6){
+					window.alert("密码长度不能小于6个字符！");
+					valid=false;
+				}else {
+					var idx=em.indexOf("@");
+					if(idx<=0 || idx==em.length-1){
+						alert("Email格式不合法！");
+						valid=false;
+					}
+				}
+				if(valid==true)
+					document.form1.submit();
+			}			
+		</script>
+	</head>
+	
+	<body">
+		请输入登陆信息：
+		<form name="form1" action="http:\\www.hebtu.edu.cn\bbs\login.jsp" method="post">
+			用户名：<input type="text" name="uname"><br>
+			密 &nbsp码：<input type="password" name="psw"><br>
+			邮 &nbsp箱：<input type="text" name="email"><br><br>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<input type="button" value="提 交" onClick="check()">&nbsp&nbsp
+			<input type="reset" value="重 置" ><br>
+		</form>	
+	</body>
+</html>

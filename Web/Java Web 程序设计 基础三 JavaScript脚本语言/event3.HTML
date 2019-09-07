@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script language="javascript">
+			function enter(){
+				window.alert("欢迎光临 ！");				
+			}
+			function leave(){
+					window.alert("下次再见 ！");
+			}
+			function test(){
+				var s = window.prompt("请输入：","");
+				window.alert("您输入的是：" + s);
+			}
+			function clear1(){
+				document.form1.uname.value="";
+			}	
+			function show(){
+				window.alert("您好：" + document.form1.uname.value);
+			}		
+	  </script>	
+	</head>
+
+	<body onLoad="enter()" onUnload="leave()">
+		<form name="form1">
+			请输入：<br>
+			姓名：<input type="text" name="uname" value="在此输入姓名" onFocus="clear1()" onBlur="show()"><br>
+			年龄：<input type="text" name="age"><br>
+			<input type="submit">		
+		</form>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script language="javascript">
+			function ad(){
+				open("adv.html","adwindow","menubar=no,toolbar=no,left=300,top=200,width=250,height=200");
+			}			
+
+			function del(){
+				var cf=confirm("确定要删除吗？");
+				if(cf==true)
+					document.form1.submit();
+			}			
+		</script>
+	</head>
+	
+	<body onLoad="ad()">
+		<form name="form1" action="http:\\www.hebtu.edu.cn\bbs\login.jsp" method="post">
+			第1条：<input type="text"><input type="button" name="r1" value="删除" onClick="del()"><br>
+			第2条：<input type="text"><input type="button" name="r2" value="删除" onClick="del()"><br>
+			第3条：<input type="text"><input type="button" name="r3" value="删除" onClick="del()"><br>
+			<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<input type="button" value="关闭窗口" onClick="window.close()">
+		</form>	
+	</body>
+</html>

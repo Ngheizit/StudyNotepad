@@ -1,0 +1,1 @@
+document.write("由脚本文件产生的javascript代码输出");

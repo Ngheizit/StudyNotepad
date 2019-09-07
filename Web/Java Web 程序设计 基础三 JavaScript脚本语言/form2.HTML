@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<script language="JavaScript">
+			function showinfo(){
+				newwindow=window.open("","","width=800 height=400");//打开一个新的页面
+        newwindow.document.write(form1.user.value+"<br>"+
+        							 form1.pwd1.value+"<br>"+
+        							 form1.xingbie[1].value+"<br>"+
+        							 form1.shenfen[1].value+"<br>"+
+        							 form1.city[2].value+"<br>"+
+        							 form1.info.value+"<br>"+
+        							 form1.file01.value+"<br>"); 
+				newwindow.document.write(document.form1.user.value); //原页面还没有消失，可以找到form1	
+				newwindow.document.close();//关闭文本流
+				document.write("hello");
+        document.write("<br>"); 
+        document.write("world"); 
+        //document.form1.submit(); //找不到form1，不起作用
+			}
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>表单组件演示：</legend>
+		<h3>请填写注册信息：</h3>
+		<form name="form1" action="http://www.hebtu.edu.cn/bbs/login.jsp" enctype="multipart/form-data" method="post">
+			用户名称：<input type="text" name="user" value="请输入用户名"><br>
+			密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd1" value="aaaaaa"><br>
+			确认密码：<input type="password" name="pwd2"><br><br>
+
+			性&nbsp;&nbsp;&nbsp;&nbsp;别:
+			<input type="radio" name="xingbie" value="male" >男
+			<input type="radio" name="xingbie" value="female" checked>女<br><br>
+			
+			选择身份:
+			<input type="checkbox" name="shenfen" value="manager">管理人员
+			<input type="checkbox" name="shenfen" value="teacher">教师
+			<input type="checkbox" name="shenfen" value="student" checked>学生<br><br>
+
+			选择城市:
+			<select name="city" size="1">
+				<option value="beijing">北京
+				<option value="shanghai">上海
+				<option value="tianjin">天津
+				<option value="shijiazhuang" selected>石家庄
+				<option value="chongqing">重庆				
+			</select><br><br>
+			
+			个人简介:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<textarea name="info" cols="40" rows="6">请在此处留言：</textarea><br><br>
+			
+			上传照片：<input type="file" name="file01"><br><br>
+			
+			<input type="hidden" name="role" value="guest">
+		</fieldset>	<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="提 交" onClick="showinfo()">
+			<input type="image" name="submit2" src="img1.jpg" width="50" height="20"
+				alt="提 交" align="top">
+			&nbsp;&nbsp;
+			<input type="reset" value="重 置">
+			&nbsp;&nbsp;
+			
+		</form>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>跟随鼠标的字符串</title>
+<style type="text/css">
+.spanstyle {
+    COLOR: #0066ff;
+    FONT-FAMILY: 隶书;
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: normal;
+    POSITION: absolute;
+}
+</style>
+<script>
+    var Rx, Ry;
+    var step = 12;
+
+    var message = "★  七  彩  字  符  迎  风  飘  扬  ★";
+    message = message.split("");
+    var xpos = new Array();
+    var ypos = new Array();
+
+    function handlerMM(e) {
+        var evt = e || window.event;
+        Rx = evt.clientX || evt.x;
+        Ry = evt.clientY || evt.y;
+    }
+
+    function makesnake() {
+        xpos[0] = Rx + step;
+        ypos[0] = Ry;
+
+        for (i = message.length - 1; i >= 1; i--) {
+            xpos[i] = xpos[i - 1] + step;
+            ypos[i] = ypos[i - 1];
+        }
+
+        for (i = 0; i <= message.length - 1; i++) {
+            var thisspan = eval("span" + (i) + ".style");
+            thisspan.posLeft = xpos[i];
+            thisspan.posTop = ypos[i];
+            thisspan.color = Math.random() * 255 * 255 * 255 + Math.random()
+                    * 255 * 255 + Math.random() * 255;
+        }
+
+        var timer = setTimeout("makesnake()", 25);
+    }
+</script>
+</head>
+<body bgcolor="#ffffff" onload="makesnake()">
+<script>
+    for (i = 0; i <= message.length - 1; i++) {
+        document.write("<span id='span"+i+"' class='spanstyle'>");
+        document.write(message[i]);
+        document.write("</span>");
+    }
+    document.onmousemove = handlerMM;
+</script>
+</body>
+</html>

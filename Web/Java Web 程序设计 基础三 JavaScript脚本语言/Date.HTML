@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<script language="javascript">
+			function showTime(){
+				var dnow=new Date();
+				var year=dnow.getYear();
+				var month=dnow.getMonth()+1;
+				var dat=dnow.getDate();
+				var day=dnow.getDay();
+				day = day==0 ? "天" : day;
+				var hours=dnow.getHours();
+				var mins=dnow.getMinutes();
+				var secs=dnow.getSeconds();
+				
+				var s1="今天是：";
+				s1+=year+"年";
+				s1+=(month<10 ? "0" : "")+month+"月";
+				s1+=dat+"日 星期";
+				s1+=day;
+
+				var s2="现在时间：";
+				if(hours<12)
+					s2+="上午";
+				else
+					s2+="下午";
+				s2+=hours<=12 ? hours : hours-12;						
+				s2+=(mins<10 ? ":0" : ":")+mins;
+				s2+=(secs<10 ? ":0" : ":")+secs;
+				
+				document.dForm1.clock1.value=s1;
+				document.dForm1.clock2.value=s2;
+			}
+			function start(){
+				showTime();
+				window.setInterval("showTime()",1000);
+			}
+		</script>
+	</head>
+	
+	<body onLoad="start()">
+		<script language="javascript">
+			var d=new Date();
+			document.write(d);       document.write("<br>");
+			document.write(d.getYear()); document.write("<br>");
+			document.write(d.getMonth()); document.write("<br>");
+			document.write(d.getDate()); document.write("<br>");
+			document.write(d.getDay()); document.write("<br>");
+			document.write(d.getHours()); document.write("<br>");
+			document.write(d.getMinutes()); document.write("<br>");
+			document.write(d.getSeconds()); document.write("<br>");
+			document.write(d.getTime()); document.write("<br>");
+		</script>
+					
+		<form name="dForm1">
+			<input type="text" name="clock1" size=35 readonly><br>
+			<input type="text" name="clock2" size=35 readonly>
+		</form>	
+	</body>
+</html>

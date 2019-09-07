@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<style type="text/css">
+			.d1 {display:block;font-size:36px;color:red}
+			.d2 {display:inline;font-size:36px;color:blue}
+			.d3 {display:none;font-size:36px;color:green}
+		</style>	
+	</head>
+	<body>
+		<p>本段前部，本段中部，本段后部。</p>	
+		<p>本段前部，<span class="d1">span内部 display:block，</span>本段后部。</p>
+		<p>本段前部，<span class="d2">span内部 display:inline，</span>本段后部。</p>	
+		<p>本段前部，<span class="d3">span内部 display:none，</span>本段后部。</p>	
+		<hr>
+		DIV块之前，<div>DIV块内部，</div>DIV块之后。<br><br>
+		DIV块之前，<div class="d1">DIV块内部 display:block，</div>DIV块之后。<br><br>	
+		DIV块之前，<div class="d2">DIV块内部 display:inline，</div>DIV块之后。<br><br>	
+		DIV块之前，<div class="d3">DIV块内部 display:none，</div>DIV块之后。<br>	
+		<hr>
+	</body>		
+</html>

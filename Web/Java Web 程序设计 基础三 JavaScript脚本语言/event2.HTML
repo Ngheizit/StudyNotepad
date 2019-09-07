@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script language="javascript">
+			function enter(){
+				window.alert("欢迎光临 ！");				
+			}
+			function leave(){
+					window.alert("下次再见 ！");
+			}
+			function test(){
+				var s = window.prompt("请输入：","");
+				window.alert("您输入的是：" + s);
+			}	
+	  </script>	
+	</head>
+
+	<body onLoad="enter()" onUnload="leave()">
+		<input type="button" name="b1" value="开 始" onClick="test()">
+	</body>
+</html>

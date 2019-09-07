@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<style type="text/css">
+			.spanstyle {
+					COLOR: #ffd8dd; FONT-FAMILY: 宋体; FONT-SIZE: 12pt; POSITION: absolute; TOP: -50px; VISIBILITY: visible
+			}
+		</style>
+
+		<script>
+			var x,y
+			var step=20
+			var flag=0
+			// Your snappy message. Important: the space at the end of the sentence!!!
+
+			var message="★ 跟着鼠标走的字符串... ！"
+			message=message.split("")
+			var xpos=new Array()
+			for (i=0;i<=message.length-1;i++) {
+				xpos[i]=-50
+			}
+
+			var ypos=new Array()
+			for (i=0;i<=message.length-1;i++) {
+				ypos[i]=-200
+			}
+
+			function handlerMM(e){
+				x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX
+				y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY
+				flag=1
+			}
+
+			function makesnake() {
+				if (flag==1 && document.all) {
+		    	for (i=message.length-1; i>=1; i--) {
+		   			xpos[i]=xpos[i-1]+step
+						ypos[i]=ypos[i-1]
+		    	}
+					xpos[0]=x+step
+					ypos[0]=y
+
+					for (i=0; i<message.length-1; i++) {
+		    		var thisspan = eval("span"+(i)+".style")
+		    		thisspan.posLeft=xpos[i]
+						thisspan.posTop=ypos[i]
+						thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;
+		    	}
+				}
+
+				else if (flag==1 && document.layers) {
+		    	for (i=message.length-1; i>=1; i--) {
+		   			xpos[i]=xpos[i-1]+step
+						ypos[i]=ypos[i-1]
+		    	}
+					xpos[0]=x+step
+					ypos[0]=y
+
+					for (i=0; i<message.length-1; i++) {
+		    		var thisspan = eval("document.span"+i)
+		    		thisspan.left=xpos[i]
+						thisspan.top=ypos[i]
+						thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;
+		    	}
+				}
+				var timer=setTimeout("makesnake()",60)
+			}
+
+		</script>
+	</head>
+
+	<body bgcolor="#ffffff" onload="makesnake()">
+		<script>
+			<!-- Beginning of JavaScript -
+
+			for (i=0;i<=message.length-1;i++) {
+		    document.write("<span id='span"+i+"' class='spanstyle'>")
+				document.write(message[i])
+		    document.write("</span>")
+			}
+
+			if (document.layers){
+				document.captureEvents(Event.MOUSEMOVE);
+			}
+			document.onmousemove = handlerMM;
+
+			// - End of JavaScript - -->
+		</script>
+		
+	</body>
+</html>
